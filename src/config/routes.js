@@ -1,7 +1,7 @@
 
 const express = require('express');
-// const auth = require('./auth');
-// const AuthService = require('../api/user/AuthService')
+const auth = require('./auth');
+const AuthService = require('../api/user/authService')
 
 module.exports = (app) => {
   /*
@@ -10,7 +10,7 @@ module.exports = (app) => {
   const protectedApi = express.Router()
   app.use('/api', protectedApi)
 
-  // protectedApi.use(auth)
+  protectedApi.use(auth)
 
   const Client = require('../api/client/clientService');
   Client.register(protectedApi, '/clients');
@@ -18,10 +18,10 @@ module.exports = (app) => {
   /*
   * Rotas abertas
   */
-  // const openApi = express.Router()
-  // app.use('/oapi', openApi);
+  const openApi = express.Router()
+  app.use('/oapi', openApi);
 
-  // openApi.post('/login', AuthService.login)
-  // openApi.post('/signup', AuthService.signup)
-  // openApi.post('/validateToken', AuthService.validateToken)
+  openApi.post('/login', AuthService.login)
+  openApi.post('/signup', AuthService.signup)
+  openApi.post('/validateToken', AuthService.validateToken)
 }
