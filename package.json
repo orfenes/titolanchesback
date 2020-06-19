@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/loader.js",
-    "production": "pm2 start src/loader.js --name titolanchesback"
+    "production": "pm2 start src/loader.js --name titolanchesback",
+    "stop": "pm2 stop src/loader.js --name titolanchesback"
   },
   "keywords": [],
   "author": "",

@@ -1,6 +1,7 @@
 
 const express = require('express');
 const auth = require('./auth');
+const AuthService = require('../api/user/AuthService')
 
 module.exports = (app) => {
   /*
@@ -17,10 +18,9 @@ module.exports = (app) => {
   /*
   * Rotas abertas
   */
- const openApi = express.Router()
- app.use('/oapi', openApi);
+  const openApi = express.Router()
+  app.use('/oapi', openApi);
 
- const AuthService = require('../api/user/AuthService')
   openApi.post('/login', AuthService.login)
   openApi.post('/signup', AuthService.signup)
   openApi.post('/validateToken', AuthService.validateToken)
