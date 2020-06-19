@@ -1,5 +1,6 @@
 const mongoose = require ('mongoose');
-const url = 'mongodb://localhost/titolanches';
+const env = require('../.env')
+const url = env.mongoUrl;
 
 mongoose.Promise = global.Promise;
 mongoose.set('useNewUrlParser', true);
